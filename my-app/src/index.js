@@ -62,7 +62,7 @@ const Body = () => {
     return averageAttributes;
   }
 
-  // Function that calculates the compatability between the team and each applicant
+  // Function that calculates the compatibility between the team and each applicant
   // Returns the compatibility score for each applicant
   function calculateScore(teamAverageAttributes, applicantAttributes) {
     const numAttributes = Object.keys(applicantAttributes).length;
@@ -71,7 +71,7 @@ const Body = () => {
     // Iterate over each attribute of the applicant
     //
     // Retrieves the team average for each attribute
-    // and calculates the compatability score for each attribute
+    // and calculates the compatibility score for each attribute
     //
     // The closer the applicant's attribute value to the team average,
     // the higher the compatibility score
@@ -88,7 +88,7 @@ const Body = () => {
 
   // Function that calculates the compatibility score for all applicants
   // Formats the result to `name': (name), `score`: (score)
-  function calculateCompatability(file) {
+  function calculateCompatibility(file) {
     const team = file[0].team;
     const applicants = file[0].applicants;
 
@@ -116,14 +116,14 @@ const Body = () => {
   const [showResult, setShowResult] = useState(false);
   const [link, setLink] = useState('');
 
-  // Function that handles the button click to calculate the compatability
+  // Function that handles the button click to calculate the compatibility
   // If the uploaded JSON file is invalid, there is no output
   // The file must contain "team" and "applicant" keys
   const handleButtonClick = () => {
     if (file.length && file[0].team && file[0].applicants) {
       // Convert the results into a JSON file
       // Generate a download link
-      const jsonString = JSON.stringify(calculateCompatability(file));
+      const jsonString = JSON.stringify(calculateCompatibility(file));
       const blob = new Blob([jsonString], { type: 'application/json'});
       const setURl = URL.createObjectURL(blob);
       setLink(setURl);
@@ -154,7 +154,7 @@ const Body = () => {
       </Row>
       <Row>
         {showResult &&
-          <>Results: {JSON.stringify(calculateCompatability(file), null, 2)}</>}
+          <>Results: {JSON.stringify(calculateCompatibility(file), null, 2)}</>}
       </Row>
       <Row>
         {showResult &&
@@ -165,7 +165,7 @@ const Body = () => {
 };
 
 // Wrapper component
-const CompatabilityPredictor = () => (
+const CompatibilityPredictor = () => (
   <>
     <Body />
   </>
@@ -173,4 +173,4 @@ const CompatabilityPredictor = () => (
 
 // Render main component to the root element
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<CompatabilityPredictor />);
+root.render(<CompatibilityPredictor />);
