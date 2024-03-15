@@ -86,7 +86,7 @@ const Body = () => {
     return total / numAttributes;
   }
 
-  // Function that calculates the compatability score for all applicants
+  // Function that calculates the compatibility score for all applicants
   // Formats the result to `name': (name), `score`: (score)
   function calculateCompatability(file) {
     const team = file[0].team;
